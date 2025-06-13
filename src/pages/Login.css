@@ -1,7 +1,7 @@
 .login-background {
           min-height: 100vh;
           min-width: 100vw;
-          background-image: url('/login-bg.png');
+          background-image: url(%PUBLIC_URL%/login-bg.png);
           display: flex;
           align-items: center;
           justify-content: center;
