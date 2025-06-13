@@ -18,7 +18,11 @@ export default function TopCoinsTable({ limit = 10 }) {
       .finally(() => setLoading(false));
 
     // Live updates via socket.io
-    const socket = io('https://6003cem-web-api-server-production.up.railway.app/');
+    const socket = io('https://6003cem-web-api-server-production.up.railway.app', {
+  transports: ['websocket'],
+  withCredentials: true,
+});
+   
     socket.on('connect_error', (err) => {
       console.error('Socket connect error:', err);
       setError('Live updates unavailable.');
