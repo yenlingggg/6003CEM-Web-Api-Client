@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import LoadingSpinner from '../components/LoadingSpinner';
-import loginBg from '../assets/login-bg.svg';
+
 import './ForgotPassword.css';
 
 export default function ForgotPassword() {

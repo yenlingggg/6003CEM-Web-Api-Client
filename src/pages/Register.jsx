@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
-import registerBg from '../assets/login-bg.svg';
+
 import './Register.css';
 export default function Register() {
   const { login } = useContext(AuthContext);
