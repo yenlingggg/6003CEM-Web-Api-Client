@@ -4,7 +4,7 @@ import axios from 'axios';
 const token = localStorage.getItem('token');
 
 const api = axios.create({
-  baseURL: 'https://6003cem-web-api-development-production.up.railway.app/',
+  baseURL: 'https://6003cem-web-api-development-production.up.railway.app',
   withCredentials: true, // optional
 });
 
