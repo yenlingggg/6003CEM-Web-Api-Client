@@ -6,7 +6,7 @@ import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import TopCoinsTable from '../components/TopCoinsTable';
 import LoadingSpinner from '../components/LoadingSpinner';
-import './Home.css'
+import './Home.css';
 
 export default function Home() {
   const { token } = useContext(AuthContext);
