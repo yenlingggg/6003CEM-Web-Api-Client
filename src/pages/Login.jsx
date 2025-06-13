@@ -5,8 +5,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
-
 import './Login.css';
+
 export default function Login() {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
