@@ -1,11 +1,11 @@
+// client/src/pages/Login.jsx
+
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
-
-import bg from '../assets/login-bg.png';
-import './Login.css';
+import loginBg from '../assets/login-bg.svg';
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -36,10 +36,7 @@ export default function Login() {
   };
 
   return (
-    <div
-      className="login-background"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <div className="login-background">
       {loading && <LoadingSpinner />}
       <div className="login-container">
         <h1 className="login-title">Log In</h1>
@@ -54,7 +51,7 @@ export default function Login() {
           />
           <div className="password-input-container">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -66,7 +63,7 @@ export default function Login() {
               onClick={() => setShowPassword(!showPassword)}
               className="password-toggle"
             >
-              {showPassword ? 'Hide' : 'Show'}
+              {showPassword ? "Hide" : "Show"}
             </button>
           </div>
           {error && <p className="error-text">{error}</p>}
@@ -87,6 +84,118 @@ export default function Login() {
           Don't have an account? <Link to="/register">Register</Link>
         </p>
       </div>
+
+      <style jsx>{`
+        .login-background {
+          min-height: 100vh;
+          min-width: 100vw;
+          background: url(${loginBg}) no-repeat center center / cover;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .login-container {
+          width: 100%;
+          max-width: 400px;
+          background-color: rgba(31, 41, 55, 0.85);
+          border-radius: 8px;
+          padding: 2rem 1.5rem;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+          text-align: center;
+        }
+        .login-title {
+          margin: 0 0 1.5rem 0;
+          color: #e5e7eb;
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+        .login-form {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .password-input-container {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .login-input {
+          padding: 0.75rem 1rem;
+          border: 1px solid #374151;
+          border-radius: 6px;
+          background-color: #1f2937;
+          color: #e5e7eb;
+          font-size: 1rem;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .login-input::placeholder {
+          color: #9ca3af;
+        }
+        .password-toggle {
+          position: absolute;
+          right: 10px;
+          background: none;
+          border: none;
+          color: #ffffff;
+          cursor: pointer;
+          padding: 5px;
+          font-size: 0.875rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0.8;
+          transition: opacity 0.2s;
+          height: 100%;
+        }
+        .password-toggle:hover {
+          opacity: 1;
+        }
+        .login-button {
+          background-color: #2563eb;
+          color: #ffffff;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+        .login-button:disabled {
+          background-color: #4b5563;
+          cursor: not-allowed;
+        }
+        .error-text {
+          color: #f87171;
+          font-size: 0.875rem;
+          margin-top: 0.5rem;
+        }
+        .forgot-text {
+          margin-top: 0.75rem;
+        }
+        .forgot-link {
+          color: #2563eb;
+          text-decoration: none;
+          font-size: 0.875rem;
+        }
+        .forgot-link:hover {
+          text-decoration: underline;
+        }
+        .toggle-text {
+          margin-top: 1rem;
+          font-size: 0.875rem;
+          color: #9ca3af;
+        }
+        .toggle-text a {
+          color: #2563eb;
+          text-decoration: none;
+          font-weight: 500;
+        }
+        .toggle-text a:hover {
+          text-decoration: underline;
+        }
+      `}</style>
     </div>
   );
 }
