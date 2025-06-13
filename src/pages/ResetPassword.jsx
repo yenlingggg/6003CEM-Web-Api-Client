@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import LoadingSpinner from '../components/LoadingSpinner';
-import loginBg from '../assets/login-bg.svg';
 import './ResetPassword.css';
 export default function ResetPassword() {
   const [searchParams] = useSearchParams();
