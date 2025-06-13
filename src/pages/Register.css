@@ -2,7 +2,7 @@
         .register-background {
           min-height: 100vh;
           min-width: 100vw;
-          background: url(${registerBg}) no-repeat center center / cover;
+          background: url('/login-bg.svg') no-repeat center center / cover;
           display: flex;
           align-items: center;
           justify-content: center;
