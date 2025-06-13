@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../utils/api';
 import LoadingSpinner from './LoadingSpinner';
 import io from 'socket.io-client';
-
+import './TopCoinsTable.css'
 export default function TopCoinsTable({ limit = 10 }) {
   const [coins, setCoins]     = useState([]);
   const [loading, setLoading] = useState(true);
@@ -101,50 +101,6 @@ export default function TopCoinsTable({ limit = 10 }) {
         </tbody>
       </table>
 
-      <style jsx>{`
-        .top-coins-container {
-          margin: 2rem 0;
-        }
-        .table-title {
-          color: #e5e7eb;
-          margin-bottom: 0.5rem;
-        }
-        .top-coins-table {
-          width: 100%;
-          border-collapse: collapse;
-          background-color: #1f2937;
-          border-radius: 8px;
-          overflow: hidden;
-        }
-        .top-coins-table th,
-        .top-coins-table td {
-          padding: 0.75rem 1rem;
-          border-bottom: 1px solid #374151;
-          color: #e5e7eb;
-          text-align: left;
-        }
-        .top-coins-table th {
-          background-color: #111827;
-          font-weight: 600;
-        }
-        .top-coins-table tr:hover {
-          background-color: #374151;
-        }
-        .name-cell {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        .table-logo {
-          width: 20px;
-          height: 20px;
-          object-fit: contain;
-        }
-        .table-symbol {
-          font-weight: 400;
-          color: #9ca3af;
-        }
-      `}</style>
     </div>
   );
 }
