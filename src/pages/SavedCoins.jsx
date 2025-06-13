@@ -6,7 +6,7 @@ import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import CoinCard from '../components/CoinCard'; 
 import LoadingSpinner from '../components/LoadingSpinner';
-
+import './SavedCoins.css';
 export default function SavedCoins() {
   const { token, logout } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -211,106 +211,7 @@ export default function SavedCoins() {
         </div>
       )}
 
-      <style jsx>{`
-
-        .saved-coins-page {
-          min-height: 100vh;
-          background-color: #111827;
-          color: #e5e7eb;
-          padding: 1rem;
-        }
-        .page-title {
-          font-size: 1.75rem;
-          margin-bottom: 1rem;
-          color: #ffffff;
-        }
-
-   
-        .search-form {
-          display: flex;
-          gap: 0.5rem;
-          margin-bottom: 1rem;
-        }
-        .search-input {
-          flex: 1;
-          padding: 0.75rem 1rem;
-          border: 1px solid #374151;
-          border-radius: 8px;
-          background-color: #1f2937;
-          color: #e5e7eb;
-          font-size: 1rem;
-        }
-        .search-input::placeholder {
-          color: #9ca3af;
-        }
-        .search-button {
-          background-color: #2563eb;
-          color: #ffffff;
-          border: none;
-          padding: 0 1.5rem;
-          border-radius: 8px;
-          cursor: pointer;
-          font-size: 1rem;
-        }
-        .search-button:disabled {
-          background-color: #4b5563;
-          cursor: not-allowed;
-        }
-
- 
-        .empty-state {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 2rem 1rem;
-          text-align: center;
-        }
-        .empty-placeholder-box {
-          width: 240px;
-          height: 120px;
-          background-color: #374151;
-          border-radius: 8px;
-          margin-bottom: 1.5rem;
-        }
-        .empty-title {
-          font-size: 1.5rem;
-          margin: 0.5rem 0;
-          color: #ffffff;
-        }
-        .empty-text {
-          font-size: 1rem;
-          color: #9ca3af;
-          margin-bottom: 1.5rem;
-        }
-        .explore-button {
-          background-color: #2563eb;
-          color: #ffffff;
-          border: none;
-          padding: 0.75rem 1.5rem;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 1rem;
-        }
-        .explore-button:hover {
-          background-color: #1e40af;
-        }
-
-    
-       .coins-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1rem;
-          margin-bottom: 0.5rem;
-        }
-
       
-        .error-text {
-          color: #f87171;
-          text-align: center;
-          margin-bottom: 1rem;
-        }
-      `}</style>
     </div>
   );
 }

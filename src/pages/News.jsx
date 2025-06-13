@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';               // axios instance pointed to /api
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
-                       
+import './News.css';           
 
 export default function News() {
   const { token, logout } = useContext(AuthContext);
@@ -86,81 +86,6 @@ export default function News() {
           )}
         </div>
       )}
-
-      <style jsx>{`
-        .news-container {
-          max-width:2000px;
-          margin: 0 auto;
-          padding: 1rem;
-          background-color: #111827;
-          color: #e5e7eb;
-          min-height: 100vh;
-        }
-        .news-title {
-          font-size: 1.75rem;
-          margin-bottom: 1rem;
-          text-align: center;
-          color: #ffffff;
-        }
-        .error-text {
-          color: #f87171;
-          text-align: center;
-          margin-bottom: 1rem;
-        }
-        .no-articles {
-          text-align: center;
-          color: #9ca3af;
-          margin-top: 2rem;
-        }
-        .articles-list {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          margin-top: 1rem;
-        }
-        .article-card {
-          display: flex;
-          background-color: #1f2937;
-          border: 1px solid #374151;
-          border-radius: 8px;
-          overflow: hidden;
-        }
-        .article-image-wrapper {
-          flex: 0 0 150px;
-        }
-        .article-image {
-          width: 150px;
-          height: 100%;
-          object-fit: cover;
-        }
-        .article-content {
-          padding: 1rem;
-          flex: 1;
-        }
-        .article-title {
-          margin: 0;
-          color: #ffffff;
-          font-size: 1.125rem;
-        }
-        .article-description {
-          margin: 0.5rem 0;
-          color: #9ca3af;
-          font-size: 0.95rem;
-        }
-        .read-more {
-          color: #2563eb;
-          text-decoration: none;
-          font-weight: 500;
-        }
-        .read-more:hover {
-          text-decoration: underline;
-        }
-        .article-date {
-          margin-top: 0.5rem;
-          font-size: 0.75rem;
-          color: #6b7280;
-        }
-      `}</style>
     </div>
   );
 }
