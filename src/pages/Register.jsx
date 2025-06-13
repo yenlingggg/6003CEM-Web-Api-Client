@@ -1,25 +1,25 @@
-// src/pages/Register.jsx
-
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
 
+import bg from '../assets/login-bg.png';
 import './Register.css';
+
 export default function Register() {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [message, setMessage] = useState('');
+  const [email, setEmail]     = useState('');
+  const [password, setPassword]         = useState('');
+  const [confirmPassword, setConfirm]   = useState('');
+  const [loading, setLoading]           = useState(false);
+  const [error, setError]               = useState('');
+  const [message, setMessage]           = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirm, setShowConfirm] = useState(false);
+  const [showConfirm, setShowConfirm]   = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,9 +46,13 @@ export default function Register() {
     }
   };
 
+  // if success, show message only
   if (message) {
     return (
-      <div className="register-background">
+      <div
+        className="register-background"
+        style={{ backgroundImage: `url(${bg})` }}
+      >
         <div className="register-container">
           <p className="success-text">{message}</p>
           <p className="toggle-text">
@@ -60,7 +64,10 @@ export default function Register() {
   }
 
   return (
-    <div className="register-background">
+    <div
+      className="register-background"
+      style={{ backgroundImage: `url(${bg})` }}
+    >
       {loading && <LoadingSpinner />}
       <div className="register-container">
         <h1 className="register-title">Register</h1>
@@ -81,9 +88,10 @@ export default function Register() {
             required
             className="register-input"
           />
+
           <div className="password-input-container">
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -95,15 +103,16 @@ export default function Register() {
               onClick={() => setShowPassword(!showPassword)}
               className="password-toggle"
             >
-              {showPassword ? "Hide" : "Show"}
+              {showPassword ? 'Hide' : 'Show'}
             </button>
           </div>
+
           <div className="password-input-container">
             <input
-              type={showConfirm ? "text" : "password"}
+              type={showConfirm ? 'text' : 'password'}
               placeholder="Confirm Password"
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              onChange={(e) => setConfirm(e.target.value)}
               required
               className="register-input"
             />
@@ -112,9 +121,10 @@ export default function Register() {
               onClick={() => setShowConfirm(!showConfirm)}
               className="password-toggle"
             >
-              {showConfirm ? "Hide" : "Show"}
+              {showConfirm ? 'Hide' : 'Show'}
             </button>
           </div>
+
           {error && <p className="error-text">{error}</p>}
           <button
             type="submit"
@@ -128,8 +138,6 @@ export default function Register() {
           Already have an account? <Link to="/login">Log in</Link>
         </p>
       </div>
-
-      
     </div>
   );
 }

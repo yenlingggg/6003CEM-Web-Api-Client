@@ -1,10 +1,10 @@
-// client/src/pages/Login.jsx
-
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
+
+import bg from '../assets/login-bg.png';
 import './Login.css';
 
 export default function Login() {
@@ -36,7 +36,10 @@ export default function Login() {
   };
 
   return (
-    <div className="login-background">
+    <div
+      className="login-background"
+      style={{ backgroundImage: `url(${bg})` }}
+    >
       {loading && <LoadingSpinner />}
       <div className="login-container">
         <h1 className="login-title">Log In</h1>
@@ -51,7 +54,7 @@ export default function Login() {
           />
           <div className="password-input-container">
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -63,7 +66,7 @@ export default function Login() {
               onClick={() => setShowPassword(!showPassword)}
               className="password-toggle"
             >
-              {showPassword ? "Hide" : "Show"}
+              {showPassword ? 'Hide' : 'Show'}
             </button>
           </div>
           {error && <p className="error-text">{error}</p>}
@@ -84,7 +87,6 @@ export default function Login() {
           Don't have an account? <Link to="/register">Register</Link>
         </p>
       </div>
-
     </div>
   );
 }

@@ -3,14 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import LoadingSpinner from '../components/LoadingSpinner';
 
+import bg from '../assets/login-bg.png';
 import './ForgotPassword.css';
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [message, setMessage] = useState('');
+  const [email, setEmail]       = useState('');
+  const [loading, setLoading]   = useState(false);
+  const [error, setError]       = useState('');
+  const [message, setMessage]   = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ export default function ForgotPassword() {
       setError('Please enter your email address');
       return;
     }
-    
+
     setLoading(true);
     setError('');
     try {
@@ -38,10 +39,14 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="login-background">
+    <div
+      className="login-background"
+      style={{ backgroundImage: `url(${bg})` }}
+    >
       {loading && <LoadingSpinner />}
       <div className="login-container">
         <h1 className="login-title">Forgot Password</h1>
+
         {message ? (
           <p className="success-text">{message}</p>
         ) : (
@@ -64,10 +69,11 @@ export default function ForgotPassword() {
             {error && <p className="error-text">{error}</p>}
           </form>
         )}
+
         <p className="toggle-text">
           Remember your password? <Link to="/login">Log in</Link>
         </p>
       </div>
     </div>
   );
-} 
+}
