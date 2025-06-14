@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import LoadingSpinner from '../components/LoadingSpinner';
-import loginBg from '../assets/login-bg.svg';
+//import loginBg from '../assets/login-bg.svg';
 
 export default function ResetPassword() {
   const [searchParams] = useSearchParams();
@@ -136,7 +136,7 @@ export default function ResetPassword() {
         .login-background {
           min-height: 100vh;
           min-width: 100vw;
-          background: url(${loginBg}) no-repeat center center / cover;
+          
           display: flex;
           align-items: center;
           justify-content: center;

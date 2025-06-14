@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
-import registerBg from '../assets/login-bg.svg';
+//import registerBg from '../assets/login-bg.svg';
 
 export default function Register() {
   const { login } = useContext(AuthContext);
@@ -133,7 +133,7 @@ export default function Register() {
         .register-background {
           min-height: 100vh;
           min-width: 100vw;
-          background: url(${registerBg}) no-repeat center center / cover;
+          
           display: flex;
           align-items: center;
           justify-content: center;
