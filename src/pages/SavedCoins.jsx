@@ -13,8 +13,8 @@ export default function SavedCoins() {
 
   const [coins, setCoins]   = useState([]);
   const [filter, setFilter] = useState('');
-  const [sortBy, setSortBy] = useState('');
-  const [newCoin, setNewCoin] = useState('');
+  const [sortBy, ] = useState('');
+
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
   const [searchError, setSearchError] = useState('');
