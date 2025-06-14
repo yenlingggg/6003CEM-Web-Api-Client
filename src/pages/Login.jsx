@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
-// import loginBg from '../assets/login-bg.svg';
+import loginBg from '../assets/login-bg.svg';
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -89,7 +89,7 @@ export default function Login() {
         .login-background {
           min-height: 100vh;
           min-width: 100vw;
-         
+          background: url(${loginBg}) no-repeat center center / cover;
           display: flex;
           align-items: center;
           justify-content: center;
